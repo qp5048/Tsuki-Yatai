@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="640" height="640">
+  <!-- Запасная картинка миски (вид сверху) — показывается, если у браузера нет WebGL -->
+  <defs>
+    <radialGradient id="broth" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#cf8d40"/>
+      <stop offset=".7" stop-color="#9c5520"/>
+      <stop offset="1" stop-color="#6e3412"/>
+    </radialGradient>
+    <radialGradient id="rim" cx="45%" cy="40%" r="60%">
+      <stop offset="0" stop-color="#fbf4e8"/>
+      <stop offset="1" stop-color="#d9ccb6"/>
+    </radialGradient>
+    <radialGradient id="meat" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#d79b7a"/>
+      <stop offset=".78" stop-color="#b9735a"/>
+      <stop offset="1" stop-color="#5a2614"/>
+    </radialGradient>
+    <radialGradient id="yolk" cx="45%" cy="45%" r="55%">
+      <stop offset="0" stop-color="#f7a225"/>
+      <stop offset="1" stop-color="#e5801a"/>
+    </radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="14"/></filter>
+  </defs>
+
+  <ellipse cx="330" cy="340" rx="290" ry="290" fill="#000" opacity=".55" filter="url(#soft)"/>
+  <!-- край миски с красной полосой -->
+  <circle cx="320" cy="320" r="300" fill="url(#rim)"/>
+  <circle cx="320" cy="320" r="282" fill="none" stroke="#a8261d" stroke-width="16"/>
+  <circle cx="320" cy="320" r="282" fill="none" stroke="#efe6d6" stroke-width="2" stroke-dasharray="10 14"/>
+  <circle cx="320" cy="320" r="262" fill="#efe6d6"/>
+  <!-- бульон -->
+  <circle cx="320" cy="320" r="250" fill="url(#broth)"/>
+  <g fill="#ffd68c" opacity=".35">
+    <circle cx="190" cy="230" r="7"/><circle cx="420" cy="180" r="5"/><circle cx="470" cy="400" r="8"/>
+    <circle cx="230" cy="450" r="6"/><circle cx="360" cy="500" r="4"/><circle cx="150" cy="350" r="5"/>
+  </g>
+  <!-- лапша -->
+  <g fill="none" stroke="#f1e4c4" stroke-width="9" stroke-linecap="round" opacity=".95">
+    <path d="M150 300 C 210 230, 280 260, 330 300 S 450 360, 480 300"/>
+    <path d="M170 360 C 230 300, 300 330, 340 360 S 430 410, 470 360"/>
+    <path d="M200 250 C 260 200, 330 240, 380 260 S 460 250, 470 220"/>
+    <path d="M180 410 C 250 380, 300 420, 350 410 S 430 440, 450 420"/>
+    <path d="M220 200 C 280 180, 320 210, 360 200"/>
+    <path d="M230 470 C 270 440, 320 470, 380 455"/>
+    <path d="M160 330 C 200 280, 260 290, 300 330 S 380 380, 420 330"/>
+  </g>
+  <!-- чашу -->
+  <g>
+    <circle cx="420" cy="260" r="62" fill="url(#meat)"/>
+    <path d="M420 260 m-4 0 a4 4 0 1 1 8 0 a12 12 0 1 1 -24 0 a20 20 0 1 1 40 0 a28 28 0 1 1 -56 0 a36 36 0 1 1 72 0" fill="none" stroke="#f6e2cd" stroke-width="4" opacity=".8"/>
+    <circle cx="455" cy="330" r="56" fill="url(#meat)"/>
+    <path d="M455 330 m-4 0 a4 4 0 1 1 8 0 a12 12 0 1 1 -24 0 a20 20 0 1 1 40 0 a28 28 0 1 1 -56 0" fill="none" stroke="#f6e2cd" stroke-width="4" opacity=".8"/>
+  </g>
+  <!-- яйцо -->
+  <g transform="rotate(-25 230 400)">
+    <ellipse cx="230" cy="400" rx="62" ry="46" fill="#f6efe1" stroke="#c98c55" stroke-width="5"/>
+    <circle cx="232" cy="400" r="27" fill="url(#yolk)"/>
+  </g>
+  <g transform="rotate(10 300 470)">
+    <ellipse cx="300" cy="470" rx="56" ry="42" fill="#f6efe1" stroke="#c98c55" stroke-width="5"/>
+    <circle cx="302" cy="470" r="24" fill="url(#yolk)"/>
+  </g>
+  <!-- листья -->
+  <g fill="#3f8a34">
+    <path d="M190 230 q30 -25 60 0 q-30 25 -60 0z" transform="rotate(-30 220 230)"/>
+    <path d="M210 270 q30 -25 60 0 q-30 25 -60 0z" transform="rotate(20 240 270)" fill="#4f9c3c"/>
+    <path d="M170 280 q26 -22 52 0 q-26 22 -52 0z" transform="rotate(70 196 280)" fill="#367a2e"/>
+  </g>
+  <!-- зелёный лук и чили -->
+  <g fill="none" stroke-width="5">
+    <circle cx="300" cy="300" r="9" stroke="#8cc75a"/><circle cx="350" cy="380" r="8" stroke="#a7d878"/>
+    <circle cx="380" cy="420" r="9" stroke="#7cb84a"/><circle cx="270" cy="350" r="8" stroke="#a7d878"/>
+    <circle cx="330" cy="240" r="8" stroke="#8cc75a"/><circle cx="400" cy="460" r="7" stroke="#7cb84a"/>
+    <circle cx="180" cy="320" r="8" stroke="#a7d878"/><circle cx="360" cy="330" r="7" stroke="#d8281e"/>
+    <circle cx="260" cy="300" r="7" stroke="#d8281e"/><circle cx="390" cy="210" r="7" stroke="#d8281e"/>
+  </g>
+</svg>

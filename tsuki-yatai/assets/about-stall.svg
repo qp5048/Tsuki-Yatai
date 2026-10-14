@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" preserveAspectRatio="xMidYMid slice">
+  <!-- Атмосферная иллюстрация: ночная лавка-ятай с фонарями.
+       Замените на своё фото: положите assets/about.jpg и поменяйте src в index.html -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d0a12"/>
+      <stop offset=".55" stop-color="#21110f"/>
+      <stop offset="1" stop-color="#3a1810"/>
+    </linearGradient>
+    <radialGradient id="spill" cx="50%" cy="62%" r="55%">
+      <stop offset="0" stop-color="#ffb35a" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#ffb35a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lantern" cx="45%" cy="40%" r="60%">
+      <stop offset="0" stop-color="#ffd27a"/>
+      <stop offset=".45" stop-color="#e2452f"/>
+      <stop offset="1" stop-color="#8e1d14"/>
+    </radialGradient>
+    <linearGradient id="noren" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a1612"/>
+      <stop offset="1" stop-color="#1a0e0b"/>
+    </linearGradient>
+    <linearGradient id="counter" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6b3a20"/>
+      <stop offset="1" stop-color="#2a140c"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="28"/></filter>
+    <filter id="blur6" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+    <filter id="steam" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#sky)"/>
+
+  <!-- огни города вдали (боке) -->
+  <g filter="url(#blur6)" opacity=".7">
+    <circle cx="90" cy="180" r="14" fill="#dda94b"/><circle cx="160" cy="120" r="9" fill="#c2352b"/>
+    <circle cx="690" cy="150" r="16" fill="#f0cb7e"/><circle cx="740" cy="240" r="10" fill="#c2352b"/>
+    <circle cx="610" cy="90" r="7" fill="#dda94b"/><circle cx="40" cy="300" r="10" fill="#f0cb7e"/>
+  </g>
+  <!-- луна -->
+  <circle cx="610" cy="210" r="48" fill="#f1e6d2" opacity=".9"/>
+  <circle cx="630" cy="198" r="44" fill="#140d10" opacity=".85"/>
+
+  <!-- тёплый свет от лавки -->
+  <ellipse cx="400" cy="640" rx="420" ry="360" fill="url(#spill)"/>
+
+  <!-- крыша лавки -->
+  <path d="M60 330 L400 250 L740 330 L740 360 L60 360 Z" fill="#7e1f18"/>
+  <g fill="#c2352b">
+    <path d="M60 360 h68 v38 q-34 22 -68 0z"/><path d="M196 360 h68 v38 q-34 22 -68 0z"/>
+    <path d="M332 360 h68 v38 q-34 22 -68 0z"/><path d="M468 360 h68 v38 q-34 22 -68 0z"/>
+    <path d="M604 360 h68 v38 q-34 22 -68 0z"/>
+  </g>
+  <g fill="#f1e6d2" opacity=".9">
+    <path d="M128 360 h68 v38 q-34 22 -68 0z"/><path d="M264 360 h68 v38 q-34 22 -68 0z"/>
+    <path d="M400 360 h68 v38 q-34 22 -68 0z"/><path d="M536 360 h68 v38 q-34 22 -68 0z"/>
+    <path d="M672 360 h68 v38 q-34 22 -68 0z"/>
+  </g>
+
+  <!-- стойки -->
+  <rect x="80" y="400" width="18" height="460" fill="#24130d"/>
+  <rect x="702" y="400" width="18" height="460" fill="#24130d"/>
+
+  <!-- занавески-норэн с луной -->
+  <g>
+    <rect x="150" y="420" width="160" height="150" fill="url(#noren)"/>
+    <rect x="320" y="420" width="160" height="150" fill="url(#noren)"/>
+    <rect x="490" y="420" width="160" height="150" fill="url(#noren)"/>
+    <circle cx="400" cy="485" r="34" fill="none" stroke="#dda94b" stroke-width="5"/>
+    <path d="M392 458 a28 28 0 1 0 0 54 a22 22 0 1 1 0 -54z" fill="#dda94b"/>
+    <path d="M190 470 h80 M200 500 h60" stroke="#dda94b" stroke-width="4" opacity=".55"/>
+    <path d="M530 470 h80 M540 500 h60" stroke="#dda94b" stroke-width="4" opacity=".55"/>
+  </g>
+
+  <!-- свечение фонарей -->
+  <g filter="url(#glow)" opacity=".85">
+    <circle cx="170" cy="470" r="70" fill="#ff5a32"/>
+    <circle cx="630" cy="470" r="70" fill="#ff5a32"/>
+    <circle cx="400" cy="300" r="60" fill="#ffb35a"/>
+  </g>
+  <!-- фонари -->
+  <g>
+    <line x1="170" y1="398" x2="170" y2="420" stroke="#1a0e0b" stroke-width="3"/>
+    <ellipse cx="170" cy="470" rx="42" ry="52" fill="url(#lantern)"/>
+    <path d="M132 450 h76 M130 470 h80 M132 490 h76" stroke="#7e1f18" stroke-width="2" opacity=".6"/>
+    <rect x="152" y="414" width="36" height="9" rx="2" fill="#1a0e0b"/>
+    <rect x="152" y="517" width="36" height="9" rx="2" fill="#1a0e0b"/>
+
+    <line x1="630" y1="398" x2="630" y2="420" stroke="#1a0e0b" stroke-width="3"/>
+    <ellipse cx="630" cy="470" rx="42" ry="52" fill="url(#lantern)"/>
+    <path d="M592 450 h76 M590 470 h80 M592 490 h76" stroke="#7e1f18" stroke-width="2" opacity=".6"/>
+    <rect x="612" y="414" width="36" height="9" rx="2" fill="#1a0e0b"/>
+    <rect x="612" y="517" width="36" height="9" rx="2" fill="#1a0e0b"/>
+  </g>
+
+  <!-- котёл и пар -->
+  <g filter="url(#steam)" fill="#fff1dc">
+    <ellipse cx="400" cy="560" rx="70" ry="40" opacity=".25"/>
+    <ellipse cx="380" cy="500" rx="55" ry="45" opacity=".18"/>
+    <ellipse cx="420" cy="440" rx="50" ry="45" opacity=".12"/>
+  </g>
+  <path d="M320 600 q0 -22 80 -22 q80 0 80 22 v50 q-80 18 -160 0z" fill="#2e2a28"/>
+  <ellipse cx="400" cy="600" rx="80" ry="16" fill="#9c5520"/>
+
+  <!-- стойка-прилавок -->
+  <rect x="60" y="640" width="680" height="36" fill="#8a4a26"/>
+  <rect x="60" y="676" width="680" height="200" fill="url(#counter)"/>
+  <!-- мисочки на прилавке -->
+  <g>
+    <path d="M190 640 q0 -34 45 -34 q45 0 45 34z" fill="#efe6d6"/>
+    <rect x="190" y="616" width="90" height="6" fill="#a8261d"/>
+    <path d="M520 640 q0 -34 45 -34 q45 0 45 34z" fill="#efe6d6"/>
+    <rect x="520" y="616" width="90" height="6" fill="#a8261d"/>
+    <line x1="500" y1="604" x2="640" y2="590" stroke="#9e2219" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- табуреты и силуэты посетителей -->
+  <g fill="#0c0807">
+    <circle cx="200" cy="760" r="34"/><path d="M150 1000 v-150 q50 -60 100 0 v150z"/>
+    <circle cx="560" cy="770" r="32"/><path d="M512 1000 v-140 q48 -58 96 0 v140z"/>
+    <rect x="320" y="880" width="70" height="14" rx="4"/><rect x="345" y="894" width="20" height="106"/>
+  </g>
+  <rect width="800" height="1000" fill="#000" opacity=".08"/>
+</svg>

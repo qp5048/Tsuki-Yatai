@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hearthnet — small social networks, built by hand</title>
+  <meta name="description" content="Hearthnet is a fictional studio that builds small, slow social networks the way the web felt in the 90s: guestbooks, webrings, forums and homepages. A concept website by Zakharii.">
+  <meta name="theme-color" content="#FDFCF8">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Fraunces (soft serif) for headings, Nunito (rounded) for text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,600..800,100&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://images.unsplash.com">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- "by zakharii" credit -->
+  <div class="credit">
+    <a class="credit__back" href="../">
+      <i data-lucide="arrow-left" aria-hidden="true"></i>All projects
+    </a>
+    <p class="credit__by">Made by <strong>zakharii</strong></p>
+    <a class="credit__src" href="https://github.com/qp5048/qp5048.github.io/tree/main/hearthnet" target="_blank" rel="noopener">Source code</a>
+  </div>
+
+  <!-- ============ Floating pill navigation ============ -->
+  <header class="nav-wrap">
+    <nav class="nav" aria-label="Main">
+      <a class="logo" href="#top" aria-label="Hearthnet, back to top">
+        <span class="logo__mark"><i data-lucide="flame" aria-hidden="true"></i></span>
+        <span class="logo__name">Hearthnet</span>
+      </a>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#services">What we build</a></li>
+        <li><a href="#process">How we work</a></li>
+        <li><a href="#work">Our work</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li class="nav__cta-mobile"><a class="btn btn--primary btn--sm" href="#guestbook">Sign the guestbook</a></li>
+      </ul>
+      <a class="btn btn--primary btn--sm nav__cta" href="#guestbook">Sign the guestbook</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <i data-lucide="menu" aria-hidden="true"></i>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <div class="blob blob--moss hero__blob-a" aria-hidden="true"></div>
+      <div class="blob blob--clay hero__blob-b" aria-hidden="true"></div>
+
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <p class="pill-label"><i data-lucide="sprout" aria-hidden="true"></i>A studio for slow social networks</p>
+          <h1>Social networks, grown by hand.</h1>
+          <p class="hero__lead">We build small online places the way the web felt in 1997: guestbooks, webrings, forums and homepages. No feed, no algorithm, no ads. Just people who know each other's names.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary btn--lg" href="#pricing">Start a community <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+            <a class="btn btn--outline btn--lg" href="#work">See our work</a>
+          </div>
+        </div>
+
+        <div class="hero__art">
+          <figure class="hero__photo">
+            <img src="https://images.unsplash.com/photo-1677022725616-91e41d36db21?auto=format&fit=crop&w=900&q=70"
+              alt="An old desktop computer on a wooden desk" width="900" height="1000"
+              onerror="this.parentElement.classList.add('is-empty');this.remove()">
+          </figure>
+
+          <!-- 90s visitor counter, but soft -->
+          <div class="float-card float-card--counter" aria-label="Visitor counter">
+            <p class="float-card__label">You are visitor</p>
+            <p class="counter" id="visitor-counter" aria-live="polite">
+              <span>0</span><span>0</span><span>0</span><span>0</span><span>0</span><span>0</span>
+            </p>
+          </div>
+
+          <div class="float-card float-card--note">
+            <i data-lucide="book-open" aria-hidden="true"></i>
+            <div>
+              <p class="float-card__label">New guestbook entry</p>
+              <p class="float-card__quote">"Found you through the gardening webring. Lovely little place!"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section section--stone" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="services-title">What we build</h2>
+          <p>The good parts of the early web, rebuilt with today's care for speed, privacy and accessibility.</p>
+        </div>
+
+        <ul class="features">
+          <li class="feature reveal">
+            <span class="icon-box"><i data-lucide="book-open" aria-hidden="true"></i></span>
+            <h3>Guestbooks</h3>
+            <p>A page where visitors leave a kind word and a hometown. Moderated by you, readable by everyone.</p>
+          </li>
+          <li class="feature reveal">
+            <span class="icon-box"><i data-lucide="orbit" aria-hidden="true"></i></span>
+            <h3>Webrings</h3>
+            <p>Link your site with others who share a hobby. Readers hop from one to the next, no search engine needed.</p>
+          </li>
+          <li class="feature reveal">
+            <span class="icon-box"><i data-lucide="messages-square" aria-hidden="true"></i></span>
+            <h3>Forums &amp; boards</h3>
+            <p>Threads that stay in order and stay put. Your best conversations are still there in ten years.</p>
+          </li>
+          <li class="feature reveal">
+            <span class="icon-box"><i data-lucide="house" aria-hidden="true"></i></span>
+            <h3>Personal homepages</h3>
+            <p>Every member gets a page they can decorate. Yes, with a background tile, if they insist.</p>
+          </li>
+          <li class="feature reveal">
+            <span class="icon-box"><i data-lucide="message-circle" aria-hidden="true"></i></span>
+            <h3>Chat rooms</h3>
+            <p>Small, named rooms with a friendly host. The kind where someone says hello when you come in.</p>
+          </li>
+          <li class="feature reveal">
+            <span class="icon-box"><i data-lucide="mail" aria-hidden="true"></i></span>
+            <h3>Newsletters</h3>
+            <p>A monthly letter from the community to its members. Plain text, warmly written, easy to reply to.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section class="section" id="process" aria-labelledby="process-title">
+      <div class="container container--focused">
+        <div class="section-head section-head--center">
+          <h2 id="process-title">How we work</h2>
+          <p>Slowly enough to get it right. Most communities launch in six to ten weeks.</p>
+        </div>
+
+        <div class="steps-wrap">
+          <!-- hand-drawn looking connector between the steps (desktop only) -->
+          <svg class="steps__path" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M60 70 C 180 0, 260 130, 380 60 S 560 0, 630 70 S 820 130, 940 50" />
+          </svg>
+          <ol class="steps">
+            <li class="step reveal">
+              <span class="step__num">1</span>
+              <h3>Sit down and talk</h3>
+              <p>We meet your people, online or over coffee, and learn how they already talk to each other.</p>
+            </li>
+            <li class="step reveal">
+              <span class="step__num">2</span>
+              <h3>Sketch on paper</h3>
+              <p>Pages are drawn by hand first. Cheap to change, easy for everyone to have an opinion on.</p>
+            </li>
+            <li class="step reveal">
+              <span class="step__num">3</span>
+              <h3>Build it by hand</h3>
+              <p>Plain HTML, careful CSS and only the JavaScript it needs. Fast on old phones and slow connections.</p>
+            </li>
+            <li class="step reveal">
+              <span class="step__num">4</span>
+              <h3>Tend it together</h3>
+              <p>We train your moderators and stay on for a season, fixing things as the community grows.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATS (moss band) ============ -->
+    <section class="stats" aria-label="Hearthnet in numbers">
+      <div class="container">
+        <dl class="stats__grid">
+          <div class="stat"><dd><span data-count="27">27</span></dd><dt>Communities planted</dt></div>
+          <div class="stat"><dd><span data-count="0">0</span></dd><dt>Algorithms deciding what you see</dt></div>
+          <div class="stat"><dd><span data-count="38">38</span>k</dd><dt>Guestbook entries signed</dt></div>
+          <div class="stat"><dd><span data-count="94">94</span> kb</dd><dt>Average page weight</dt></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ FEATURED WORK ============ -->
+    <section class="section section--sand" id="work" aria-labelledby="work-title">
+      <div class="blob blob--moss work__blob" aria-hidden="true"></div>
+      <div class="container work__grid">
+        <!-- A hand-built mockup of a client forum, framed like a photo -->
+        <figure class="work__frame reveal">
+          <div class="retro" role="img" aria-label="Screenshot of the Mossboard forum: a list of threads about gardening">
+            <div class="retro__bar">
+              <span></span><span></span><span></span>
+              <p>mossboard.example / forum</p>
+            </div>
+            <div class="retro__body">
+              <p class="retro__title">Mossboard · the gardeners' forum</p>
+              <p class="retro__marquee"><span>Welcome back! 14 members online · Spring seed swap starts Saturday · Please wipe your boots</span></p>
+              <table class="retro__table">
+                <thead><tr><th>Thread</th><th>Replies</th><th>Last post</th></tr></thead>
+                <tbody>
+                  <tr><td>Tomatoes splitting after rain?</td><td>23</td><td>Ingrid · 2h</td></tr>
+                  <tr><td>Show us your compost heap</td><td>112</td><td>Oskar · 5h</td></tr>
+                  <tr><td>Seed swap list 2026</td><td>48</td><td>Maja · 1d</td></tr>
+                  <tr><td>Slugs. Again.</td><td>67</td><td>Pelle · 2d</td></tr>
+                </tbody>
+              </table>
+              <p class="retro__foot">Webring: ‹ Prev · Gardening Ring · Next ›</p>
+            </div>
+          </div>
+          <figcaption>Mossboard, launched spring 2025</figcaption>
+        </figure>
+
+        <div class="work__text">
+          <p class="pill-label pill-label--clay"><i data-lucide="leaf" aria-hidden="true"></i>Featured community</p>
+          <h2 id="work-title">Mossboard: 1,200 gardeners, one forum</h2>
+          <p>A Swedish gardening club had outgrown its Facebook group. Posts vanished in the feed and half the members had quit the app. We built them a forum that works like a well-kept allotment: everything in its place, nothing selling anything.</p>
+          <ul class="checks">
+            <li><i data-lucide="check" aria-hidden="true"></i>Threads sorted by last reply, never by "engagement"</li>
+            <li><i data-lucide="check" aria-hidden="true"></i>Member homepages with photos of their plots</li>
+            <li><i data-lucide="check" aria-hidden="true"></i>A seed-swap guestbook and a gardening webring</li>
+            <li><i data-lucide="check" aria-hidden="true"></i>Loads in under a second on a ten-year-old phone</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHY SMALL ============ -->
+    <section class="section" aria-labelledby="why-title">
+      <div class="container why__grid">
+        <div class="why__text">
+          <h2 id="why-title">Why small networks feel better</h2>
+          <p>When a place has a few hundred people instead of a few hundred million, it behaves differently. People are kinder when they will see each other again next week.</p>
+          <ul class="why__list">
+            <li><span class="icon-dot"><i data-lucide="clock" aria-hidden="true"></i></span><div><strong>Chronological, always.</strong> Newest at the top. You decide what's important.</div></li>
+            <li><span class="icon-dot"><i data-lucide="shield-check" aria-hidden="true"></i></span><div><strong>No tracking.</strong> No ad pixels, no data brokers, no "suggested for you".</div></li>
+            <li><span class="icon-dot"><i data-lucide="key-round" aria-hidden="true"></i></span><div><strong>The community owns it.</strong> Your domain, your data, exportable any day.</div></li>
+            <li><span class="icon-dot"><i data-lucide="feather" aria-hidden="true"></i></span><div><strong>Light as a leaf.</strong> Works on old computers, slow trains and cheap phones.</div></li>
+          </ul>
+        </div>
+        <figure class="why__photo reveal">
+          <img src="https://images.unsplash.com/photo-1758272960336-e304478e50de?auto=format&fit=crop&w=900&q=70"
+            alt="Friends laughing around a campfire in the woods" loading="lazy" width="900" height="900"
+            onerror="this.parentElement.classList.add('is-empty');this.remove()">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="section section--stone" aria-labelledby="quotes-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 id="quotes-title">Kind words from the guestbook</h2>
+        </div>
+        <ul class="quotes">
+          <li class="quote reveal">
+            <p>"Our choir used to organise everything in a group chat that nobody could search. Now we have a little homepage with a forum and a calendar, and the older members actually use it."</p>
+            <footer><span class="avatar" aria-hidden="true">AL</span><div><strong>Anna L.</strong><small>Norrköping Community Choir</small></div></footer>
+          </li>
+          <li class="quote reveal">
+            <p>"They asked us how our club talks before they wrote a single line of code. That's never happened to me with an agency."</p>
+            <footer><span class="avatar avatar--clay" aria-hidden="true">JB</span><div><strong>Jonas B.</strong><small>Retro Bikes Östergötland</small></div></footer>
+          </li>
+          <li class="quote reveal">
+            <p>"The webring alone brought us more new members than two years of posting on big social media."</p>
+            <footer><span class="avatar avatar--sand" aria-hidden="true">SK</span><div><strong>Sara K.</strong><small>Mossboard moderator</small></div></footer>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section class="section" id="pricing" aria-labelledby="pricing-title">
+      <div class="blob blob--clay pricing__blob" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 id="pricing-title">Simple, one-time pricing</h2>
+          <p>You pay for the build, not for your members. Hosting is at cost.</p>
+          <div class="billing" role="group" aria-label="Show prices in">
+            <button type="button" class="billing__opt" aria-pressed="true" data-currency="eur">EUR</button>
+            <button type="button" class="billing__opt" aria-pressed="false" data-currency="sek">SEK</button>
+          </div>
+        </div>
+
+        <ul class="plans">
+          <li class="plan reveal">
+            <h3>Seedling</h3>
+            <p class="plan__for">For a club or a family</p>
+            <p class="plan__price"><span data-price="900">€900</span></p>
+            <ul class="plan__list">
+              <li><i data-lucide="check" aria-hidden="true"></i>Homepage and guestbook</li>
+              <li><i data-lucide="check" aria-hidden="true"></i>Up to 100 members</li>
+              <li><i data-lucide="check" aria-hidden="true"></i>Join one webring</li>
+            </ul>
+            <a class="btn btn--outline" href="#guestbook">Plant a seedling</a>
+          </li>
+          <li class="plan plan--featured reveal">
+            <p class="plan__badge">Most planted</p>
+            <h3>Grove</h3>
+            <p class="plan__for">For an association or a scene</p>
+            <p class="plan__price"><span data-price="2400">€2,400</span></p>
+            <ul class="plan__list">
+              <li><i data-lucide="check" aria-hidden="true"></i>Forum, homepages and chat rooms</li>
+              <li><i data-lucide="check" aria-hidden="true"></i>Up to 2,000 members</li>
+              <li><i data-lucide="check" aria-hidden="true"></i>Your own webring</li>
+              <li><i data-lucide="check" aria-hidden="true"></i>Moderator training</li>
+            </ul>
+            <a class="btn btn--primary" href="#guestbook">Grow a grove</a>
+          </li>
+          <li class="plan reveal">
+            <h3>Old Forest</h3>
+            <p class="plan__for">For a whole town or network</p>
+            <p class="plan__price">Let's talk</p>
+            <ul class="plan__list">
+              <li><i data-lucide="check" aria-hidden="true"></i>Everything in Grove</li>
+              <li><i data-lucide="check" aria-hidden="true"></i>Several connected communities</li>
+              <li><i data-lucide="check" aria-hidden="true"></i>A season of hands-on care</li>
+            </ul>
+            <a class="btn btn--outline" href="#guestbook">Write to us</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section section--sand" id="faq" aria-labelledby="faq-title">
+      <div class="container container--focused faq__grid">
+        <div>
+          <h2 id="faq-title">Questions people ask</h2>
+          <p class="muted">Didn't find yours? Leave it in the guestbook below.</p>
+        </div>
+        <div class="faq">
+          <details class="faq__item">
+            <summary>Is this really like the 90s web?<i data-lucide="chevron-down" aria-hidden="true"></i></summary>
+            <p>In spirit, yes: small, personal and chronological. In practice it's modern: it works on phones, it's accessible to screen readers and it's secure.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Can our members log in with Google or Facebook?<i data-lucide="chevron-down" aria-hidden="true"></i></summary>
+            <p>We prefer a simple email login, so no big platform learns who belongs to your community. If you really need it, we can add it.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Who moderates the community?<i data-lucide="chevron-down" aria-hidden="true"></i></summary>
+            <p>Your own people. We set up the tools and train your moderators, then stay around for a season in case anything gets thorny.</p>
+          </details>
+          <details class="faq__item">
+            <summary>What happens if you disappear?<i data-lucide="chevron-down" aria-hidden="true"></i></summary>
+            <p>You own the code, the domain and the data from day one. Any web developer can pick it up; it's plain HTML, CSS and a little JavaScript.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GUESTBOOK (working, saved in the browser) ============ -->
+    <section class="guestbook" id="guestbook" aria-labelledby="guestbook-title">
+      <div class="blob blob--light guestbook__blob" aria-hidden="true"></div>
+      <div class="container container--intimate">
+        <div class="guestbook__head">
+          <h2 id="guestbook-title">Sign our guestbook</h2>
+          <p>Every good homepage had one. Say hello, ask a question or tell us about your community.</p>
+        </div>
+
+        <form class="gb-form" id="gb-form" novalidate>
+          <div class="gb-form__row">
+            <label class="input-label" for="gb-name">Your name</label>
+            <input class="input" id="gb-name" name="name" type="text" maxlength="40" autocomplete="nickname" placeholder="Your name" required>
+            <label class="input-label" for="gb-place">Where you're from</label>
+            <input class="input" id="gb-place" name="place" type="text" maxlength="40" placeholder="Where you're from (optional)">
+          </div>
+          <label class="input-label" for="gb-message">Message</label>
+          <textarea class="input input--area" id="gb-message" name="message" maxlength="240" rows="3" placeholder="Leave a kind word…" required></textarea>
+          <div class="gb-form__foot">
+            <p class="gb-form__count" id="gb-count" aria-live="polite">240 characters left</p>
+            <button class="btn btn--light" type="submit">Sign the guestbook <i data-lucide="pen-line" aria-hidden="true"></i></button>
+          </div>
+          <p class="gb-form__error" id="gb-error" role="alert" hidden></p>
+        </form>
+
+        <ol class="gb-list" id="gb-list" aria-live="polite"></ol>
+        <p class="gb-note">Entries are saved only in your own browser. This is a demo, nothing is sent anywhere.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a class="logo" href="#top">
+          <span class="logo__mark"><i data-lucide="flame" aria-hidden="true"></i></span>
+          <span class="logo__name">Hearthnet</span>
+        </a>
+        <p>Small social networks, built by hand in Norrköping, Sweden.</p>
+        <ul class="socials">
+          <li><a href="#" aria-label="Mastodon (placeholder link)"><i data-lucide="at-sign" aria-hidden="true"></i></a></li>
+          <li><a href="#" aria-label="RSS feed (placeholder link)"><i data-lucide="rss" aria-hidden="true"></i></a></li>
+          <li><a href="#" aria-label="Email (placeholder link)"><i data-lucide="mail" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Studio</h3>
+        <ul class="footer__links">
+          <li><a href="#services">What we build</a></li>
+          <li><a href="#process">How we work</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Say hello</h3>
+        <ul class="footer__links">
+          <li>hello@hearthnet.example</li>
+          <li>+46 11 765 43 21</li>
+          <li>Drottninggatan 12, Norrköping</li>
+        </ul>
+      </div>
+      <!-- A real webring: hops between the portfolio projects -->
+      <nav class="webring" aria-label="Zakharii webring">
+        <h3>Zakharii webring</h3>
+        <div class="webring__links">
+          <a href="../tsuki-yatai/"><i data-lucide="arrow-left" aria-hidden="true"></i>Tsuki Yatai</a>
+          <a href="../">All projects</a>
+          <a href="../tsuki-yatai/">Tsuki Yatai<i data-lucide="arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </nav>
+    </div>
+    <div class="container footer__bottom">
+      <p>Hearthnet is a fictional studio; all names, clients and prices are made up. Photos from <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.</p>
+      <p>Designed and built by zakharii, 2026</p>
+    </div>
+  </footer>
+
+  <!-- Icons: Lucide (ISC licence) -->
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

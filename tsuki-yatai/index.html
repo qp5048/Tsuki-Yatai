@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en" class="is-loading">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Tsuki Yatai — Night Noodle Bar</title>
+  <meta name="description" content="Tsuki Yatai is a fictional Asian night-market noodle bar. A concept website by Zakharii: scroll-driven 3D, a live bowl builder and an ordering flow.">
+  <meta name="theme-color" content="#15110E">
+  <meta property="og:title" content="Tsuki Yatai — Night Noodle Bar">
+  <meta property="og:description" content="Concept website by Zakharii: scroll-driven 3D bowl, live bowl builder, menu and ordering flow.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts: Shippori Mincho B1 for the brand, Prata for headings, Onest for text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Prata&family=Shippori+Mincho+B1:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://images.unsplash.com">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Import map: Three.js as ES modules from a CDN, no bundler needed -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============ PRELOADER ============ -->
+  <div class="preloader" id="preloader" aria-live="polite">
+    <div class="preloader__seal" aria-hidden="true">月</div>
+    <p class="preloader__text">Lighting the fire under the pot…</p>
+    <div class="preloader__bar"><span id="preloader-bar"></span></div>
+  </div>
+
+  <!-- ============ TOP: credit bar + header ============ -->
+  <div class="site-top" id="site-top">
+    <div class="credit-bar">
+      <a class="credit-bar__link credit-bar__back" href="../">← All projects</a>
+      <span class="credit-bar__sep" aria-hidden="true"></span>
+      <span>Made by <strong>Zakharii</strong></span>
+      <span class="credit-bar__sep" aria-hidden="true"></span>
+      <button type="button" class="credit-bar__link" data-open-project>About this project</button>
+      <a class="credit-bar__link credit-bar__gh" href="https://github.com/qp5048/qp5048.github.io/tree/main/tsuki-yatai" target="_blank" rel="noopener">Source code</a>
+    </div>
+
+    <header class="site-header" id="site-header">
+      <a class="brand" href="#top" data-scroll-to="#top">
+        <span class="brand__seal" aria-hidden="true">月</span>
+        <span class="brand__name">Tsuki Yatai</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="#menu" data-scroll-to="#menu">Menu</a>
+        <a href="#builder" data-scroll-to="#builder">Build a bowl</a>
+        <a href="#gallery" data-scroll-to="#gallery">Gallery</a>
+        <a href="#about" data-scroll-to="#about">Story</a>
+        <a href="#contacts" data-scroll-to="#contacts">Visit</a>
+      </nav>
+      <p class="status-pill" data-open-status hidden></p>
+      <button class="cart-btn" type="button" data-open-cart aria-label="Open your order">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h16l-1.4 9.2A2 2 0 0 1 16.6 20H7.4a2 2 0 0 1-2-1.8z"/><path d="M8.5 9 11 4M15.5 9 13 4"/></svg>
+        <span class="cart-btn__label">Order</span>
+        <span class="cart-btn__count" data-cart-count>0</span>
+      </button>
+      <button class="btn btn--small header-book" type="button" data-open-booking>Book a table</button>
+    </header>
+  </div>
+
+  <main id="top">
+
+    <!-- ============ 1. HERO ============ -->
+    <section class="hero" id="hero" aria-label="Tsuki Yatai">
+      <div class="hero__glow" aria-hidden="true">
+        <span class="lantern lantern--1"></span>
+        <span class="lantern lantern--2"></span>
+        <span class="lantern lantern--3"></span>
+      </div>
+
+      <!-- The big name sits UNDER the bowl: the bowl overlaps the letters -->
+      <h1 class="hero__title" id="hero-title" aria-label="Tsuki Yatai">
+        <span class="hero__line hero__line--1" aria-hidden="true">Tsuki</span>
+        <span class="hero__line hero__line--2" aria-hidden="true">Yatai</span>
+      </h1>
+
+      <!-- Three.js draws the bowl here -->
+      <canvas class="hero__canvas" id="bowl-canvas" aria-hidden="true"></canvas>
+
+      <!-- Shown only when WebGL is not available -->
+      <div class="hero__fallback" id="bowl-fallback" hidden>
+        <img src="assets/noodle-bowl.svg" alt="A bowl of rice noodle soup with egg, beef and herbs" width="640" height="640">
+      </div>
+
+      <p class="hero__kanji" aria-hidden="true">月屋台</p>
+
+      <p class="hero__slogan" id="hero-slogan">
+        Broth on the fire since dawn.<br>Doors open until midnight.
+      </p>
+
+      <div class="hero__hint" id="hero-hint">
+        <span>Scroll down</span>
+        <i aria-hidden="true"></i>
+      </div>
+    </section>
+
+    <!-- ============ 2. MENU ============ -->
+    <section class="menu" id="menu" aria-labelledby="menu-title">
+      <div class="container">
+        <div class="menu__head">
+          <h2 class="section-title" id="menu-title">Menu</h2>
+          <p class="menu__lead">Everything is cooked over open flame, night-market style: fast, hot and a little smoky. Portions are big, so come hungry. Tap a dish to see what's in it.</p>
+        </div>
+
+        <div class="menu__controls">
+          <!-- Category tabs (buttons are generated from js/data.js) -->
+          <div class="tabs" role="tablist" aria-label="Menu categories" id="menu-tabs"></div>
+          <div class="filters" role="group" aria-label="Filter dishes">
+            <button type="button" class="filter" data-filter="veg" aria-pressed="false"><span class="filter__dot filter__dot--veg"></span>Vegetarian</button>
+            <button type="button" class="filter" data-filter="hot" aria-pressed="false"><span class="filter__dot filter__dot--hot"></span>Spicy</button>
+          </div>
+        </div>
+
+        <div class="dishes" id="menu-panel" role="tabpanel" tabindex="0"></div>
+
+        <p class="menu__note">Allergies? Open a dish to see its allergens, or ask us and we'll find a swap.</p>
+      </div>
+    </section>
+
+    <!-- ============ 3. BUILD YOUR BOWL ============ -->
+    <section class="builder" id="builder" aria-labelledby="builder-title">
+      <div class="container builder__grid">
+        <div class="builder__stage">
+          <canvas id="builder-canvas" aria-label="3D preview of your bowl. Drag to turn it."></canvas>
+          <img class="builder__fallback" id="builder-fallback" src="assets/noodle-bowl.svg" alt="" hidden>
+          <p class="builder__drag" aria-hidden="true">Drag to turn the bowl</p>
+          <ul class="builder__badges" id="builder-badges" aria-live="polite"></ul>
+        </div>
+
+        <div class="builder__panel">
+          <h2 class="section-title" id="builder-title">Build your bowl</h2>
+          <p class="builder__lead">Pick a broth, choose your noodles and pile on toppings. The bowl on the left changes as you go.</p>
+
+          <form id="builder-form" class="builder__form">
+            <fieldset class="step">
+              <legend><span class="step__num">1</span>Broth</legend>
+              <div class="choice-grid choice-grid--broth" id="builder-broths"></div>
+            </fieldset>
+            <fieldset class="step">
+              <legend><span class="step__num">2</span>Noodles</legend>
+              <div class="segmented" id="builder-noodles"></div>
+            </fieldset>
+            <fieldset class="step">
+              <legend><span class="step__num">3</span>Toppings</legend>
+              <div class="chips" id="builder-toppings"></div>
+            </fieldset>
+
+            <div class="builder__summary">
+              <div>
+                <p class="builder__total-label">Your bowl</p>
+                <p class="builder__total" id="builder-total" aria-live="polite">€0.00</p>
+              </div>
+              <div class="builder__actions">
+                <button type="button" class="btn btn--ghost" id="builder-random">Surprise me</button>
+                <button type="submit" class="btn">Add to order</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. GALLERY (horizontal scroll) ============ -->
+    <section class="gallery" id="gallery" aria-labelledby="gallery-title">
+      <div class="gallery__inner">
+        <div class="gallery__intro">
+          <h2 class="section-title" id="gallery-title">After dark</h2>
+          <p>The market that taught us to cook. Keep scrolling.</p>
+        </div>
+        <div class="gallery__track" id="gallery-track"></div>
+      </div>
+    </section>
+
+    <!-- ============ 5. STORY ============ -->
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="container about__grid">
+        <figure class="about__media">
+          <img class="about__img" id="about-img"
+            src="https://images.unsplash.com/photo-1538128844159-f08f41bfb169?auto=format&fit=crop&w=900&q=70"
+            alt="A cook working the wok in a busy kitchen" width="800" height="1000" loading="lazy"
+            onerror="this.onerror=null;this.src='assets/about-stall.svg'">
+        </figure>
+
+        <div class="about__text">
+          <h2 class="section-title" id="about-title">A stall that grew out of a cart</h2>
+          <p>Tsuki Yatai started as a cart with a single pot at a riverside night market: eight stools, paper lanterns and a queue until one in the morning. Chef Hana Nguyen, daughter of a Japanese ramen cook and a Vietnamese broth seller, still makes the base the family way: fourteen hours, charred onion and no shortcuts.</p>
+          <p>We moved indoors but kept what matters: an open kitchen, a loud wok and the feeling that you ducked in for a bite somewhere between Hanoi and Osaka.</p>
+          <dl class="facts">
+            <div><dt>Broth simmers</dt><dd>14 h</dd></div>
+            <div><dt>Seats</dt><dd>42</dd></div>
+            <div><dt>Last order</dt><dd>00:30</dd></div>
+          </dl>
+          <p class="about__sign">Hana Nguyen, chef and owner</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ 6. VISIT / FOOTER ============ -->
+  <footer class="footer" id="contacts" aria-labelledby="contacts-title">
+    <div class="container">
+      <div class="footer__cta">
+        <p class="status-pill status-pill--large" data-open-status hidden></p>
+        <h2 class="section-title" id="contacts-title">Come by tonight</h2>
+        <p>On Fridays and Saturdays we're full by 8 pm. Book ahead, or order for pickup.</p>
+        <div class="footer__buttons">
+          <button class="btn btn--large" type="button" data-open-booking>Book a table</button>
+          <button class="btn btn--large btn--ghost" type="button" data-scroll-to="#menu">Order for pickup</button>
+        </div>
+      </div>
+
+      <div class="footer__grid">
+        <div class="footer__item">
+          <h3>Address</h3>
+          <p>Lyktgränd 7<br>602 24 Norrköping, Sweden</p>
+        </div>
+        <div class="footer__item">
+          <h3>Phone &amp; email</h3>
+          <p><a href="tel:+46111234567">+46 11 123 45 67</a><br>
+             <a href="mailto:hello@tsuki-yatai.example">hello@tsuki-yatai.example</a></p>
+        </div>
+        <div class="footer__item">
+          <h3>Opening hours</h3>
+          <dl class="hours" id="hours-list">
+            <dt data-days="2,3,4">Tue–Thu</dt><dd data-days="2,3,4">17:00–23:00</dd>
+            <dt data-days="5,6">Fri–Sat</dt><dd data-days="5,6">17:00–01:00</dd>
+            <dt data-days="0">Sun</dt><dd data-days="0">16:00–22:00</dd>
+            <dt data-days="1">Mon</dt><dd data-days="1">Closed</dd>
+          </dl>
+        </div>
+        <div class="footer__item">
+          <h3>Follow us</h3>
+          <!-- Placeholder links -->
+          <ul class="socials">
+            <li><a href="#" aria-label="Instagram (placeholder link)">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" class="fill"/></svg>
+              <span>Instagram</span></a></li>
+            <li><a href="#" aria-label="TikTok (placeholder link)">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="4"/><path d="M10.5 9.2v5.6l4.6-2.8z" class="fill"/></svg>
+              <span>TikTok</span></a></li>
+            <li><a href="#" aria-label="Facebook (placeholder link)">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 3.5V17A2.5 2.5 0 0 1 4 14.5z"/></svg>
+              <span>Facebook</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span class="brand__seal brand__seal--small" aria-hidden="true">月</span>
+        <p class="disclaimer">A fictional restaurant. All details are made up. Food photos from <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.</p>
+        <p class="copyright">Designed &amp; built by <button type="button" class="link-btn" data-open-project>Zakharii</button>, 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ ORDER DRAWER ============ -->
+  <div class="drawer-backdrop" id="cart-backdrop" hidden></div>
+  <aside class="drawer" id="cart" aria-labelledby="cart-title" aria-hidden="true" data-lenis-prevent>
+    <div class="drawer__head">
+      <h2 id="cart-title">Your order</h2>
+      <button class="icon-btn" type="button" data-close-cart aria-label="Close your order">×</button>
+    </div>
+
+    <!-- 1. Basket -->
+    <div class="drawer__view" id="cart-basket">
+      <ul class="cart-list" id="cart-list"></ul>
+      <div class="cart-empty" id="cart-empty">
+        <p class="cart-empty__title">Nothing here yet</p>
+        <p>Add dishes from the menu or build your own bowl.</p>
+        <button type="button" class="btn btn--small" data-close-cart data-scroll-to="#menu">Browse the menu</button>
+      </div>
+      <div class="drawer__foot" id="cart-foot">
+        <label class="field">Pickup time
+          <select id="cart-pickup"></select>
+        </label>
+        <div class="cart-total"><span>Total</span><strong id="cart-total">€0.00</strong></div>
+        <button type="button" class="btn btn--large drawer__cta" id="cart-checkout">Place pickup order</button>
+      </div>
+    </div>
+
+    <!-- 2. Order tracking (demo) -->
+    <div class="drawer__view" id="cart-tracking" hidden>
+      <p class="track__number">Order <strong id="track-number">TY-0000</strong></p>
+      <p class="track__eta" id="track-eta"></p>
+      <ol class="track" id="track-steps">
+        <li data-step="0"><span class="track__dot"></span><div><strong>Order received</strong><small>The kitchen has your ticket</small></div></li>
+        <li data-step="1"><span class="track__dot"></span><div><strong>In the wok</strong><small>Noodles in, broth on</small></div></li>
+        <li data-step="2"><span class="track__dot"></span><div><strong>Ready for pickup</strong><small>Lyktgränd 7, at the counter</small></div></li>
+      </ol>
+      <p class="track__demo">Demo only: no real order was placed.</p>
+      <button type="button" class="btn btn--large drawer__cta" id="track-done">Done</button>
+    </div>
+  </aside>
+
+  <!-- ============ DISH QUICK VIEW ============ -->
+  <dialog class="modal quick" id="quick" aria-labelledby="quick-title" data-lenis-prevent>
+    <button class="icon-btn modal__close" type="button" data-close-dialog aria-label="Close">×</button>
+    <div class="quick__media"><img id="quick-img" alt=""></div>
+    <div class="quick__body">
+      <h2 id="quick-title"></h2>
+      <p class="quick__desc" id="quick-desc"></p>
+      <dl class="quick__meta">
+        <div><dt>Heat</dt><dd id="quick-spice"></dd></div>
+        <div><dt>Allergens</dt><dd id="quick-allergens"></dd></div>
+      </dl>
+      <div class="quick__buy">
+        <div class="stepper" role="group" aria-label="Quantity">
+          <button type="button" data-qty="-1" aria-label="One less">−</button>
+          <output id="quick-qty">1</output>
+          <button type="button" data-qty="1" aria-label="One more">+</button>
+        </div>
+        <button type="button" class="btn quick__add" id="quick-add">Add · €0.00</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ============ BOOKING (demo, nothing is sent) ============ -->
+  <dialog class="modal booking" id="booking" aria-labelledby="booking-title" data-lenis-prevent>
+    <form class="booking__form" id="booking-form" novalidate>
+      <button class="icon-btn modal__close" type="button" data-close-dialog aria-label="Close">×</button>
+      <h2 id="booking-title">Book a table</h2>
+
+      <div class="booking__fields">
+        <label class="field">Name
+          <input id="booking-name" name="name" type="text" autocomplete="name" required placeholder="Your name">
+        </label>
+        <label class="field">Phone
+          <input id="booking-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+46 …">
+        </label>
+        <div class="booking__row">
+          <label class="field">Date
+            <input name="date" type="date" required id="booking-date">
+          </label>
+          <label class="field">Guests
+            <select name="guests" id="booking-guests">
+              <option>1</option><option selected>2</option><option>3</option><option>4</option>
+              <option>5</option><option>6</option><option>7</option><option>8</option>
+            </select>
+          </label>
+        </div>
+        <fieldset class="slots">
+          <legend>Time</legend>
+          <div class="slots__grid" id="booking-slots"></div>
+        </fieldset>
+      </div>
+
+      <p class="booking__error" id="booking-error" role="alert" hidden></p>
+      <button class="btn btn--large booking__submit" type="submit">Book a table</button>
+
+      <div class="booking__done" id="booking-done" hidden>
+        <p class="booking__done-title">See you soon</p>
+        <p id="booking-summary"></p>
+        <p class="booking__demo">Demo only: the booking was not sent anywhere.</p>
+        <button class="btn" type="button" data-close-dialog>Done</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- ============ ABOUT THIS PROJECT (portfolio panel) ============ -->
+  <dialog class="modal project" id="project" aria-labelledby="project-title" data-lenis-prevent>
+    <button class="icon-btn modal__close" type="button" data-close-dialog aria-label="Close">×</button>
+    <p class="project__kicker">Portfolio project</p>
+    <h2 id="project-title">Tsuki Yatai, made by Zakharii</h2>
+    <p>A concept website for a fictional restaurant, built from scratch with plain HTML, CSS and JavaScript. No framework and no build step: open the source and every line is readable.</p>
+
+    <h3>What's inside</h3>
+    <ul class="project__list">
+      <li><strong>Scroll-driven 3D hero.</strong> A procedural noodle bowl in Three.js, pinned with GSAP ScrollTrigger, spinning and zooming with the scroll. Smooth wheel scrolling by Lenis, native touch on phones.</li>
+      <li><strong>Live bowl builder.</strong> The same 3D generator rebuilds the bowl as you change the broth, noodles and toppings, with a running price.</li>
+      <li><strong>Ordering flow.</strong> Add dishes, change quantities, pick a pickup time and follow a demo order. The basket is saved in the browser.</li>
+      <li><strong>Menu with filters and quick view.</strong> Category tabs with keyboard support, vegetarian and spicy filters, allergen info.</li>
+      <li><strong>Table booking</strong> with validation and time slots, and a live "open now" status in Swedish time.</li>
+      <li><strong>Built to be fast.</strong> 3D renders only while visible, pixel ratio is capped, shadows are off on phones, images are lazy-loaded and reduced-motion is respected.</li>
+    </ul>
+
+    <h3>Stack</h3>
+    <ul class="project__stack">
+      <li>HTML</li><li>CSS</li><li>JavaScript (ES modules)</li><li>Three.js</li><li>GSAP + ScrollTrigger</li><li>Lenis</li><li>GitHub Pages</li>
+    </ul>
+
+    <div class="project__actions">
+      <a class="btn" href="https://github.com/qp5048/qp5048.github.io/tree/main/tsuki-yatai" target="_blank" rel="noopener">View the source</a>
+      <button class="btn btn--ghost" type="button" data-close-dialog>Back to the site</button>
+    </div>
+  </dialog>
+
+  <!-- Small notification ("Added to your order") -->
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <!-- ============ LIBRARIES ============ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
+  <script type="module" src="js/main.js"></script>
+
+  <!-- Safety net: if a CDN is unreachable, still show the site after 12 s -->
+  <script>
+    setTimeout(function () {
+      var p = document.getElementById("preloader");
+      if (!p || p.classList.contains("is-hidden")) return;
+      document.documentElement.classList.remove("is-loading", "js-anim");
+      p.classList.add("is-hidden");
+    }, 12000);
+  </script>
+</body>
+</html>
