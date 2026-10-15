@@ -1,7 +1,7 @@
 # Zakharii — web projects
 
 Portfolio of websites designed and built by **Zakharii**.
-Live: **https://qp5048.github.io**
+Live: **https://qp5048.github.io/Tsuki-Yatai/**
 
 | Project | What it is | Built with |
 |---|---|---|

@@ -2,7 +2,7 @@
 
 A concept website for a fictional Asian night-market restaurant, designed and built by **Zakharii**.
 
-**Live site:** https://qp5048.github.io/tsuki-yatai/ (part of the portfolio at https://qp5048.github.io)
+**Live site:** https://qp5048.github.io/Tsuki-Yatai/tsuki-yatai/
 
 Plain HTML, CSS and JavaScript (ES modules). No framework and no build step.
 
