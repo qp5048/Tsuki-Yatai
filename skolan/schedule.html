@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Timetable & lunch — Valvskolan</title>
+  <meta name="description" content="Weekly timetables for every class and the school lunch menu at Valvskolan (fictional).">
+  <meta name="theme-color" content="#0f1418">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500;600&family=Familjen+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/schedule.js"></script>
+</head>
+<body data-station="spruce">
+  <a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-prev" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></symbol>
+</svg>
+  <div class="credit">
+    <span>Made by <strong>Zakharii</strong></span>
+    <a href="../">&larr; All projects</a>
+    <a href="https://github.com/qp5048/Tsuki-Yatai/tree/main/skolan" target="_blank" rel="noopener">Source code</a>
+  </div>
+
+  <header class="wrap header">
+    <a class="logo" href="index.html" aria-label="Valvskolan, home">
+      <span class="plate">Valvskolan</span>
+      <span class="logo__lines" aria-hidden="true"><i style="--c:var(--line-low)"></i><i style="--c:var(--line-mid)"></i><i style="--c:var(--line-high)"></i></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span>Menu</span></button>
+    <nav class="line-nav" id="site-nav" aria-label="Main">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="schedule.html" aria-current="page">Timetable & lunch</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="about.html">Our school</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="vault vault--band">
+      <svg class="vault__art" data-vault="forest" data-seed="12" data-height="560" aria-hidden="true"></svg>
+      <div class="wrap">
+        <h1 class="page-title rise"><span class="plate">Timetable &amp; lunch</span></h1>
+        <div class="page-sub rise rise--2"><p>Every class, every day, and what the kitchen is cooking.</p></div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="wrap">
+        <div class="tabs" role="tablist" aria-label="Timetable or lunch" id="schedule-tabs">
+          <button class="tab" role="tab" id="tab-timetable" aria-controls="panel-timetable" aria-selected="true">Timetable</button>
+          <button class="tab" role="tab" id="tab-lunch" aria-controls="panel-lunch" aria-selected="false" tabindex="-1">Lunch menu</button>
+        </div>
+
+        <div role="tabpanel" id="panel-timetable" aria-labelledby="tab-timetable" tabindex="0">
+          <div class="toolbar">
+            <div class="toolbar__group">
+              <label class="toolbar__label" for="tt-class">Class</label>
+              <select class="select" id="tt-class"></select>
+            </div>
+            <div class="toolbar__group" role="group" aria-label="View">
+              <button class="chip" type="button" data-view="week" aria-pressed="true">Week</button>
+              <button class="chip" type="button" data-view="day" aria-pressed="false">Day</button>
+            </div>
+            <div class="spacer"></div>
+            <div class="stepper" id="tt-day-stepper" hidden>
+              <button type="button" data-step="-1" aria-label="Previous day"><svg class="icon" aria-hidden="true"><use href="#i-prev"/></svg></button>
+              <output id="tt-day-label" aria-live="polite"></output>
+              <button type="button" data-step="1" aria-label="Next day"><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></button>
+            </div>
+          </div>
+          <h2 class="visually-hidden" id="tt-title">Timetable</h2>
+          <div id="tt-week" class="week-scroll"></div>
+          <div id="tt-day" class="day-board" hidden></div>
+          <p class="legend" id="tt-legend"></p>
+        </div>
+
+        <div role="tabpanel" id="panel-lunch" aria-labelledby="tab-lunch" tabindex="0" hidden>
+          <div class="toolbar">
+            <div class="stepper">
+              <button type="button" data-week="-1" aria-label="Previous week"><svg class="icon" aria-hidden="true"><use href="#i-prev"/></svg></button>
+              <output id="lunch-week" aria-live="polite"></output>
+              <button type="button" data-week="1" aria-label="Next week"><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></button>
+            </div>
+            <button class="btn btn--ghost btn--small" type="button" id="lunch-today">This week</button>
+          </div>
+          <div class="lunch">
+            <div>
+              <h2 class="visually-hidden">Menu</h2>
+              <div id="lunch-days"></div>
+              <p class="muted" style="margin-top:18px" id="lunch-sides"></p>
+            </div>
+            <aside class="panel side-card" aria-labelledby="allergy-title">
+              <h3 id="allergy-title">Avoiding something?</h3>
+              <p>Tick what your child can't eat and we'll mark the dishes. Special diets are cooked separately once the diet form is in.</p>
+              <fieldset class="checks" id="lunch-allergens"><legend class="visually-hidden">Allergens</legend></fieldset>
+              <p id="lunch-flag-note" style="margin-top:12px" aria-live="polite"></p>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div>
+        <p><span class="plate">Valvskolan</span></p>
+        <p>A fictional F–9 school under the rock of Södermalm, Stockholm.</p>
+      </div>
+      <div>
+        <h2>Visit</h2>
+        <p>Klippgränd 9<br>118 25 Stockholm</p>
+        <p>Office open weekdays 07:45–16:00</p>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <p><a href="tel:+46855501234">+46 8 555 012 34</a><br><a href="mailto:office@valvskolan.example">office@valvskolan.example</a></p>
+        <p>Absence: report before 08:00</p>
+      </div>
+      <div>
+        <h2>Pages</h2>
+        <ul>
+          <li><a href="schedule.html">Timetable</a></li>
+          <li><a href="schedule.html#lunch">Lunch menu</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+          <li><a href="about.html#visit">Book a visit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap footer__bottom">
+      <p>Valvskolan is fictional. Every person, event and menu is made up. Photos from <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.</p>
+      <p>Designed and built by Zakharii, 2026</p>
+    </div>
+  </footer>
+</body>
+</html>

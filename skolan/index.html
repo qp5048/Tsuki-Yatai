@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Valvskolan — an F–9 school in Stockholm</title>
+  <meta name="description" content="Valvskolan is a fictional F–9 school in Stockholm: timetables, school lunch, calendar and news. A portfolio project by Zakharii.">
+  <meta name="theme-color" content="#0f1418">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500;600&family=Familjen+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/home.js"></script>
+</head>
+<body data-station="cobalt">
+  <a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-prev" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></symbol>
+</svg>
+  <div class="credit">
+    <span>Made by <strong>Zakharii</strong></span>
+    <a href="../">&larr; All projects</a>
+    <a href="https://github.com/qp5048/Tsuki-Yatai/tree/main/skolan" target="_blank" rel="noopener">Source code</a>
+  </div>
+
+  <header class="wrap header">
+    <a class="logo" href="index.html" aria-label="Valvskolan, home">
+      <span class="plate">Valvskolan</span>
+      <span class="logo__lines" aria-hidden="true"><i style="--c:var(--line-low)"></i><i style="--c:var(--line-mid)"></i><i style="--c:var(--line-high)"></i></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span>Menu</span></button>
+    <nav class="line-nav" id="site-nav" aria-label="Main">
+      <ol>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="schedule.html">Timetable & lunch</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="about.html">Our school</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="vault vault--hero" aria-labelledby="hero-title">
+      <svg class="vault__art" data-vault="vines" data-seed="7" data-height="900" aria-hidden="true"></svg>
+      <div class="wrap hero">
+        <div class="hero__copy rise">
+          <h1 class="hero__name" id="hero-title"><span class="plate">Valvskolan</span></h1>
+          <p class="hero__lines">
+            <span class="bullet bullet--low" title="Green line">F–3</span>
+            <span class="bullet bullet--mid" title="Red line">4–6</span>
+            <span class="bullet bullet--high" title="Blue line">7–9</span>
+          </p>
+          <p class="hero__lead"><span>A school for 412 children, from reception to year 9, carved into the rock of Södermalm.</span></p>
+          <div class="hero__actions">
+            <a class="btn" href="about.html#visit">Book a visit <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--ghost" href="schedule.html">Full timetable</a>
+          </div>
+        </div>
+
+        <section class="board rise rise--2" id="home-board" aria-labelledby="board-title">
+          <div class="board__head">
+            <div class="board__title">
+              <h2 id="board-title" style="font-size:inherit;letter-spacing:0">Next for class</h2>
+              <label class="visually-hidden" for="board-class">Choose a class</label>
+              <select id="board-class"></select>
+            </div>
+            <p class="board__clock" aria-live="off"><span id="board-clock">--:--</span><small>Stockholm</small></p>
+          </div>
+          <ol class="board__rows" id="board-rows" aria-live="polite"></ol>
+          <div class="board__foot">
+            <a href="schedule.html#lunch"><span class="board__label">Lunch today</span><strong id="board-lunch">&nbsp;</strong></a>
+            <a href="calendar.html"><span class="board__label">Next event</span><strong id="board-event">&nbsp;</strong></a>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="lines-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="lines-title">Three lines, one school</h2>
+          <p>We split the school the way Stockholm splits its metro. Each line has its own teachers, schoolyard and rhythm, and they all meet at lunch.</p>
+        </div>
+        <ol class="lines">
+          <li class="line-row" style="--c:var(--line-low)">
+            <div class="line-row__map" aria-hidden="true">
+              <span class="line-row__stop"><i></i><b>F</b></span><span class="line-row__stop"><i></i><b>1</b></span><span class="line-row__stop"><i></i><b>2</b></span><span class="line-row__stop"><i></i><b>3</b></span>
+            </div>
+            <div>
+              <h3><span class="bullet bullet--low">F–3</span>Green line: learning to read the world</h3>
+              <p>Reading every morning, maths with your hands, and at least one lesson outdoors each day. The after-school club opens at 06:30 and closes at 17:30.</p>
+            </div>
+          </li>
+          <li class="line-row" style="--c:var(--line-mid)">
+            <div class="line-row__map" aria-hidden="true">
+              <span class="line-row__stop"><i></i><b>4</b></span><span class="line-row__stop"><i></i><b>5</b></span><span class="line-row__stop"><i></i><b>6</b></span>
+            </div>
+            <div>
+              <h3><span class="bullet bullet--mid">4–6</span>Red line: big projects, own ideas</h3>
+              <p>Woodwork, music and a makerspace with 3D printers. Each term ends with a project the class presents to their families.</p>
+            </div>
+          </li>
+          <li class="line-row" style="--c:var(--line-high)">
+            <div class="line-row__map" aria-hidden="true">
+              <span class="line-row__stop"><i></i><b>7</b></span><span class="line-row__stop"><i></i><b>8</b></span><span class="line-row__stop"><i></i><b>9</b></span>
+            </div>
+            <div>
+              <h3><span class="bullet bullet--high">7–9</span>Blue line: ready for upper secondary</h3>
+              <p>Subject teachers, a second modern language, work experience in year 8 and calm, steady support through the national tests in year 9.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--tight" aria-label="This week">
+      <div class="wrap split">
+        <article class="poster" aria-labelledby="poster-title">
+          <h3 id="poster-title">Lunch this week <small id="poster-week">Week</small></h3>
+          <ul class="menu-list" id="poster-list"></ul>
+          <p style="margin-top:16px"><a href="schedule.html#lunch">Allergens and next week's menu</a></p>
+        </article>
+        <div>
+          <h2 style="font-size:var(--step-3);margin-bottom:18px">Coming up</h2>
+          <ol class="upcoming" id="home-upcoming"></ol>
+          <p style="margin-top:18px"><a href="calendar.html">The whole school year</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="news-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="news-title">News from the school</h2>
+        </div>
+        <div class="news-lead" id="home-news"></div>
+      </div>
+    </section>
+
+    <section class="section--tight">
+      <div class="wrap">
+        <div class="invite">
+          <div>
+            <h2>Come and see us under the rock</h2>
+            <p>Looking for a school for your child? We show families around on Tuesday and Thursday mornings. It takes 45 minutes and you'll meet a teacher from your child's line.</p>
+          </div>
+          <a class="btn" href="about.html#visit">Book a visit <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div>
+        <p><span class="plate">Valvskolan</span></p>
+        <p>A fictional F–9 school under the rock of Södermalm, Stockholm.</p>
+      </div>
+      <div>
+        <h2>Visit</h2>
+        <p>Klippgränd 9<br>118 25 Stockholm</p>
+        <p>Office open weekdays 07:45–16:00</p>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <p><a href="tel:+46855501234">+46 8 555 012 34</a><br><a href="mailto:office@valvskolan.example">office@valvskolan.example</a></p>
+        <p>Absence: report before 08:00</p>
+      </div>
+      <div>
+        <h2>Pages</h2>
+        <ul>
+          <li><a href="schedule.html">Timetable</a></li>
+          <li><a href="schedule.html#lunch">Lunch menu</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+          <li><a href="about.html#visit">Book a visit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap footer__bottom">
+      <p>Valvskolan is fictional. Every person, event and menu is made up. Photos from <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.</p>
+      <p>Designed and built by Zakharii, 2026</p>
+    </div>
+  </footer>
+</body>
+</html>

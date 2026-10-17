@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Zakharii — web projects</title>
-  <meta name="description" content="Web projects designed and built by Zakharii: Tsuki Yatai, a 3D night-market restaurant site, and Hearthnet, a studio site in an organic design system.">
+  <meta name="description" content="Web projects designed and built by Zakharii: Tsuki Yatai, a 3D night-market restaurant site, Hearthnet, a studio site in an organic design system, and Valvskolan, a multi-page Stockholm school site.">
   <meta name="theme-color" content="#15110E">
   <link rel="icon" href="hub/favicon.svg" type="image/svg+xml">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,700..800,100&family=Onest:wght@400;500;600&family=Shippori+Mincho+B1:wght@800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@700&family=Fraunces:opsz,wght,SOFT@9..144,700..800,100&family=Onest:wght@400;500;600&family=Shippori+Mincho+B1:wght@800&display=swap" rel="stylesheet">
 
   <style>
     /* Two projects, two worlds: the page is split down the middle.
@@ -97,14 +97,14 @@
       transition: flex-grow .8s var(--ease), filter .6s;
     }
     /* the hovered door opens wider, the other one steps back */
-    @media (hover: hover) and (min-width: 821px) {
+    @media (hover: hover) and (min-width: 961px) {
       .doors:hover .door { filter: saturate(.75) brightness(.85); }
       .doors .door:hover, .doors .door:focus-visible { --grow: 1.45; filter: none; }
     }
     .door:focus-visible { outline: 3px solid var(--gold); outline-offset: -8px; }
 
     .door__kicker { margin: 0 0 14px; font-size: .9rem; opacity: .75; }
-    .door__title { margin: 0; line-height: .95; letter-spacing: -.02em; font-size: clamp(3rem, 7vw, 6.5rem); }
+    .door__title { margin: 0; line-height: .95; letter-spacing: -.02em; font-size: clamp(2.6rem, 4.8vw, 5.2rem); }
     .door__desc { max-width: 34ch; margin: 18px 0 26px; font-size: 1.05rem; line-height: 1.55; opacity: .85; }
     .door__tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 28px; padding: 0; list-style: none; }
     .door__tags li { padding: .3em .85em; border-radius: 999px; font-size: .82rem; }
@@ -225,8 +225,39 @@
     }
     .foot a:hover { color: #fff; }
 
+    /* Door 3: Valvskolan — whitewashed metro rock */
+    .door--valv {
+      background-color: #eef0ed;
+      background-image: linear-gradient(rgb(240 242 239 / .55), rgb(240 242 239 / .55)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.008 .012' numOctaves='5' seed='11' stitchTiles='stitch'/%3E%3CfeDiffuseLighting lighting-color='%23fff' surfaceScale='5'%3E%3CfeDistantLight azimuth='225' elevation='52'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23r)'/%3E%3C/svg%3E");
+      color: #1b2023;
+    }
+    .door--valv .door__title { font-size: clamp(2.4rem, 3.9vw, 4.4rem); font-family: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif; font-weight: 700; }
+    .door--valv .door__title span { display: inline-block; padding: .08em .3em .14em; border-radius: 12px; background: #163563; color: #fff; box-shadow: inset 0 0 0 4px rgb(255 255 255 / .92), inset 0 0 0 7px #163563; }
+    .door--valv .door__tags li { background: #1b2023; color: #fff; font-weight: 600; }
+    .door--valv .door__cta { background: #163563; color: #fff; border-radius: 8px; }
+    .valv__vine { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; }
+    .valv__board {
+      position: absolute;
+      z-index: -1;
+      left: 50%;
+      top: 30%;
+      width: min(68%, 300px);
+      translate: -50% -50%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: #0f1418;
+      color: #eef2f4;
+      box-shadow: 0 0 0 5px #2a3238, 0 30px 40px -24px rgb(5 10 15 / .6);
+      font-size: .8rem;
+      transition: transform 1s var(--ease);
+    }
+    .door--valv:hover .valv__board { transform: translateY(-6px) rotate(-1deg); }
+    .valv__board b { display: block; margin-bottom: 6px; color: #ffb547; font-weight: 600; }
+    .valv__board span { display: grid; grid-template-columns: 3.4em 1fr; gap: 8px; padding: 5px 0; border-top: 1px dashed #263036; }
+    .valv__board i { font-style: normal; font-family: ui-monospace, Menlo, monospace; color: #ffb547; }
+
     /* ---- phones and narrow tablets: doors stack ---- */
-    @media (max-width: 820px) {
+    @media (max-width: 960px) {
       .doors { flex-direction: column; }
       .door { min-height: 88svh; padding-top: 110px; padding-bottom: 56px; }
       .door--hearth { padding-top: 64px; padding-bottom: 80px; }
@@ -239,6 +270,7 @@
     @media (prefers-reduced-motion: no-preference) {
       .door--tsuki > * { animation: rise .9s var(--ease) backwards; }
       .door--hearth > * { animation: rise .9s .15s var(--ease) backwards; }
+      .door--valv > * { animation: rise .9s .3s var(--ease) backwards; }
       @keyframes rise { from { opacity: 0; transform: translateY(24px); } }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -295,6 +327,31 @@
           <li>Organic design system</li><li>Vanilla JS</li><li>Accessible</li>
         </ul>
         <span class="door__cta">Open the studio
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+      <!-- Button 3: the school -->
+      <a class="door door--valv" href="skolan/">
+        <svg class="valv__vine" viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <path d="M0 120 C 80 40, 320 40, 400 120 L400 0 L0 0 Z" fill="rgb(62 72 76 / .22)"/>
+          <path d="M30 800 C 10 600, 60 420, 30 260 C 20 200, 60 150, 120 120" fill="none" stroke="#1f4fa3" stroke-width="5" stroke-linecap="round"/>
+          <path d="M370 800 C 390 620, 340 460, 372 300 C 380 240, 340 170, 280 130" fill="none" stroke="#1f4fa3" stroke-width="5" stroke-linecap="round"/>
+          <path d="M34 420 q 34 -20 40 -60 q -40 14 -40 60 Z M30 300 q -24 -30 -10 -66 q 24 30 10 66 Z M366 360 q -34 -18 -40 -58 q 40 12 40 58 Z M372 520 q 26 -26 14 -64 q -26 28 -14 64 Z" fill="#1f4fa3"/>
+          <circle cx="340" cy="240" r="7" fill="#d0392b"/><circle cx="352" cy="254" r="7" fill="#d0392b"/>
+        </svg>
+        <div class="valv__board" aria-hidden="true">
+          <b>Next for class 5B</b>
+          <span><i>08:15</i>English</span>
+          <span><i>09:30</i>Maths</span>
+          <span><i>11:40</i>Lunch</span>
+        </div>
+        <p class="door__kicker">School website · 5 pages</p>
+        <h2 class="door__title"><span>Valvskolan</span></h2>
+        <p class="door__desc">A Stockholm school built like a metro station: live timetables, lunch menus, a filterable calendar, news and visit booking.</p>
+        <ul class="door__tags">
+          <li>Multi-page</li><li>Working tabs</li><li>Generative SVG</li>
+        </ul>
+        <span class="door__cta">Open the school
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </span>
       </a>

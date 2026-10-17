@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Our school — Valvskolan</title>
+  <meta name="description" content="About Valvskolan, a fictional school in Stockholm: staff, directions and school visits.">
+  <meta name="theme-color" content="#0f1418">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500;600&family=Familjen+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/about.js"></script>
+</head>
+<body data-station="clay">
+  <a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-prev" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></symbol>
+</svg>
+  <div class="credit">
+    <span>Made by <strong>Zakharii</strong></span>
+    <a href="../">&larr; All projects</a>
+    <a href="https://github.com/qp5048/Tsuki-Yatai/tree/main/skolan" target="_blank" rel="noopener">Source code</a>
+  </div>
+
+  <header class="wrap header">
+    <a class="logo" href="index.html" aria-label="Valvskolan, home">
+      <span class="plate">Valvskolan</span>
+      <span class="logo__lines" aria-hidden="true"><i style="--c:var(--line-low)"></i><i style="--c:var(--line-mid)"></i><i style="--c:var(--line-high)"></i></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span>Menu</span></button>
+    <nav class="line-nav" id="site-nav" aria-label="Main">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="schedule.html">Timetable & lunch</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="about.html" aria-current="page">Our school</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="vault vault--band">
+      <svg class="vault__art" data-vault="waves" data-seed="58" data-height="560" aria-hidden="true"></svg>
+      <div class="wrap">
+        <h1 class="page-title rise"><span class="plate">Our school</span></h1>
+        <div class="page-sub rise rise--2"><p>Who we are, who works here, how to find us.</p></div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="wrap">
+        <div class="tabs" role="tablist" aria-label="About the school" id="about-tabs">
+          <button class="tab" role="tab" id="tab-school" aria-controls="panel-school" aria-selected="true">About</button>
+          <button class="tab" role="tab" id="tab-staff" aria-controls="panel-staff" aria-selected="false" tabindex="-1">Staff</button>
+          <button class="tab" role="tab" id="tab-find" aria-controls="panel-find" aria-selected="false" tabindex="-1">Find us</button>
+          <button class="tab" role="tab" id="tab-visit" aria-controls="panel-visit" aria-selected="false" tabindex="-1">Book a visit</button>
+        </div>
+
+        <div role="tabpanel" id="panel-school" aria-labelledby="tab-school" tabindex="0">
+          <div class="split" style="margin-top:40px">
+            <div class="prose">
+              <h2>A school inside a mountain</h2>
+              <p>In 1962 the city blasted a civil defence shelter into the rock under Klippgränd. Sixty years later we turned it into a school: the classrooms sit in the old building above, and the dining hall, library and sports hall are in the vaults below.</p>
+              <p>Like the metro stations nearby, the bare rock walls are painted. Every year one class designs a new section, so the school slowly becomes the largest drawing any of our pupils will ever make.</p>
+              <p>We are a municipal school with 412 pupils from reception class (förskoleklass) to year 9, an after-school club for the youngest, and a kitchen that cooks everything from scratch.</p>
+            </div>
+            <figure class="frame" style="aspect-ratio:4/5;margin:0">
+              <img src="https://images.unsplash.com/photo-1588052356599-939841f42126?auto=format&fit=crop&w=900&q=70" alt="A child in a blue jacket and knit cap holding on to a tree trunk in the forest" loading="lazy" width="900" height="1125">
+            </figure>
+          </div>
+          <ul class="values">
+            <li><strong>Outside every day</strong><p>Every class spends time outdoors daily, in the schoolyard, in Vita Bergen park or further out on trips.</p></li>
+            <li><strong>Calm to learn</strong><p>Phones rest in lockers during the day, and the library has a quiet room for anyone who needs one.</p></li>
+            <li><strong>Everyone's wall</strong><p>Pupils paint the rock and pick the art. The school is theirs, and it looks like it.</p></li>
+          </ul>
+        </div>
+
+        <div role="tabpanel" id="panel-staff" aria-labelledby="tab-staff" tabindex="0" hidden>
+          <div class="toolbar">
+            <div class="toolbar__group" role="group" aria-label="Show staff for" id="staff-filters"></div>
+            <div class="spacer"></div>
+            <label class="search"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><span class="visually-hidden">Search staff</span><input type="search" id="staff-search" placeholder="Name or subject" autocomplete="off"></label>
+          </div>
+          <h2 class="visually-hidden">Staff</h2>
+          <p class="muted" id="staff-count" aria-live="polite" style="margin-bottom:16px"></p>
+          <ul class="staff" id="staff-list"></ul>
+        </div>
+
+        <div role="tabpanel" id="panel-find" aria-labelledby="tab-find" tabindex="0" hidden>
+          <div class="findus" style="margin-top:40px">
+            <div>
+              <h2 style="font-size:var(--step-3);margin-bottom:22px">Getting here</h2>
+              <dl class="facts">
+                <dt>Address</dt><dd>Klippgränd 9, 118 25 Stockholm</dd>
+                <dt>Metro</dt><dd>Medborgarplatsen on the green line, then a 6-minute walk up the hill. Take the exit marked Folkungagatan.</dd>
+                <dt>Bus</dt><dd>Lines 2 and 66 to Björns trädgård.</dd>
+                <dt>Bike</dt><dd>Covered bike racks for 180 bikes by the main gate.</dd>
+                <dt>Office</dt><dd>Weekdays 07:45–16:00, <a href="tel:+46855501234">+46 8 555 012 34</a></dd>
+              </dl>
+            </div>
+            <figure class="panel routemap" style="margin:0">
+              <svg viewBox="0 0 520 300" role="img" aria-labelledby="route-title">
+                <title id="route-title">Route from Medborgarplatsen metro station to Valvskolan: walk east along Folkungagatan, then up the hill on Klippgränd.</title>
+                <path d="M40 210 H300" stroke="#287a3a" stroke-width="12" stroke-linecap="round" fill="none"/>
+                <circle cx="70" cy="210" r="12" fill="#fff" stroke="#1b2023" stroke-width="5"/>
+                <circle cx="170" cy="210" r="18" fill="#fff" stroke="#1b2023" stroke-width="6"/>
+                <circle cx="270" cy="210" r="12" fill="#fff" stroke="#1b2023" stroke-width="5"/>
+                <text x="70" y="248" text-anchor="middle" font-size="14" fill="#4b5459">Slussen</text>
+                <text x="170" y="252" text-anchor="middle" font-size="16" font-weight="700" fill="#1b2023">Medborgarplatsen</text>
+                <text x="270" y="248" text-anchor="middle" font-size="14" fill="#4b5459">Skanstull</text>
+                <path d="M170 192 C 210 140, 300 150, 340 110 S 420 80, 440 70" stroke="#a8492a" stroke-width="5" stroke-dasharray="2 12" stroke-linecap="round" fill="none"/>
+                <rect x="400" y="30" width="96" height="38" rx="8" fill="#163563"/>
+                <text x="448" y="55" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Valvskolan</text>
+                <text x="300" y="126" font-size="13" fill="#4b5459">6 min walk</text>
+              </svg>
+              <figcaption class="muted" style="margin-top:10px;font-size:.9rem">Schematic map, not to scale.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div role="tabpanel" id="panel-visit" aria-labelledby="tab-visit" tabindex="0" hidden>
+          <div class="booking" style="margin-top:40px">
+            <form class="panel form" id="visit-form" novalidate>
+              <h2 style="font-size:var(--step-3)">Book a visit</h2>
+              <fieldset>
+                <legend>1. Pick a morning</legend>
+                <div class="slots" id="visit-slots"></div>
+                <p class="field__error" id="err-slot" hidden>Choose a time for your visit.</p>
+              </fieldset>
+              <fieldset>
+                <legend>2. About you</legend>
+                <div class="fields-2">
+                  <label class="field">Your name<input id="visit-name" name="name" autocomplete="name" required><span class="field__error" id="err-name" hidden>Add your name so we know who to expect.</span></label>
+                  <label class="field">Email<input id="visit-email" name="email" type="email" autocomplete="email" required><span class="field__error" id="err-email" hidden>Add an email address like name@example.com.</span></label>
+                </div>
+                <label class="field">Your child would start in
+                  <select id="visit-year" name="year">
+                    <option value="F">Reception class (F)</option><option>Year 1</option><option>Year 2</option><option>Year 3</option><option>Year 4</option><option>Year 5</option><option>Year 6</option><option>Year 7</option><option>Year 8</option><option>Year 9</option>
+                  </select>
+                </label>
+              </fieldset>
+              <div><button class="btn btn--paint" type="submit">Book this visit <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+            </form>
+            <aside class="ticket" aria-labelledby="ticket-title">
+              <h3 id="ticket-title">Your booked visits</h3>
+              <div id="visit-list"></div>
+              <p style="margin-top:14px">Demo only: bookings stay in this browser and nothing is sent.</p>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div>
+        <p><span class="plate">Valvskolan</span></p>
+        <p>A fictional F–9 school under the rock of Södermalm, Stockholm.</p>
+      </div>
+      <div>
+        <h2>Visit</h2>
+        <p>Klippgränd 9<br>118 25 Stockholm</p>
+        <p>Office open weekdays 07:45–16:00</p>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <p><a href="tel:+46855501234">+46 8 555 012 34</a><br><a href="mailto:office@valvskolan.example">office@valvskolan.example</a></p>
+        <p>Absence: report before 08:00</p>
+      </div>
+      <div>
+        <h2>Pages</h2>
+        <ul>
+          <li><a href="schedule.html">Timetable</a></li>
+          <li><a href="schedule.html#lunch">Lunch menu</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+          <li><a href="about.html#visit">Book a visit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap footer__bottom">
+      <p>Valvskolan is fictional. Every person, event and menu is made up. Photos from <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.</p>
+      <p>Designed and built by Zakharii, 2026</p>
+    </div>
+  </footer>
+</body>
+</html>
